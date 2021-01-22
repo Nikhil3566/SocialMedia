@@ -80,12 +80,12 @@ public class SocialMediaService implements ISocialMediaService {
 	}
 
 	/**
-	 * Fetches a list of followees.
+	 * Fetches a list of followees' user ids.
 	 * 
 	 * @param user logged in user.
-	 * @return user list of user ids of followees.
+	 * @return List<Long> list of user ids of followees.
 	 */
-	private List<Long> getFollowees(User follower) {
-		return follower.getFollowees().stream().map(User::getUserId).collect(Collectors.toList());
+	private List<Long> getFollowees(User user) {
+		return user.getFollowees().stream().map(User::getUserId).collect(Collectors.toList());
 	}
 }
