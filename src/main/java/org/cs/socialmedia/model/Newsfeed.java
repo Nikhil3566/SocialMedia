@@ -8,9 +8,4 @@ public class Newsfeed extends ArrayDeque<Post> {
 	public Newsfeed() {
 		super();
 	}
-
-	@Override
-	public void push(Post post) {
-		super.push(post);
-	}
 }

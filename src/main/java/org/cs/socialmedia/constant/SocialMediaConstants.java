@@ -1,6 +1,10 @@
 package org.cs.socialmedia.constant;
 
-public class SocialMediaConstants {
-	public static String NEWSFEED_URI = "/socialmedia/newsfeed/%s";
-	public static Integer NEWS_FEED_DISPLAY_LIMIT = 20;
+public final class SocialMediaConstants {
+	public static final String NEWSFEED_URI = "/socialmedia/newsfeed/%s";
+	public static final Integer NEWS_FEED_DISPLAY_LIMIT = 20;
+
+	private SocialMediaConstants() {
+		super();
+	}
 }

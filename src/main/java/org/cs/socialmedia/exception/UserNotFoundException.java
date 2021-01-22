@@ -4,7 +4,7 @@ public class UserNotFoundException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
+	private final Long id;
 
 	public UserNotFoundException(Long id) {
 		this.id = id;
@@ -12,9 +12,5 @@ public class UserNotFoundException extends RuntimeException {
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 }

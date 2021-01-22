@@ -20,7 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SocialMediaApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest( classes = SocialMediaApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SocialMediaControllerIntegrationTest {
 
 	@LocalServerPort
@@ -29,7 +29,7 @@ public class SocialMediaControllerIntegrationTest {
 	TestRestTemplate restTemplate = new TestRestTemplate();
 
 	HttpHeaders headers = new HttpHeaders();
-
+	
 	@Test
 	public void testCreatePostForValidUser() {
 
@@ -106,6 +106,18 @@ public class SocialMediaControllerIntegrationTest {
 
 		assertEquals(HttpStatus.OK, followResponse2.getStatusCode());
 		assertThat(followResponse2.getBody()).containsExactly(5L);
+	}
+	
+	@Test
+	public void testUNFollowAnAlreadyUnFollowedUser() {
+		
+		FollowUnFollowDTO unfollowRequestBody = new FollowUnFollowDTO(5L, 3L);
+
+		HttpEntity<FollowUnFollowDTO> unfollowEntity = new HttpEntity<FollowUnFollowDTO>(unfollowRequestBody, headers);
+
+		ResponseEntity unfollowResponse = restTemplate.exchange(createURLWithPort("/socialmedia/unfollow/"),
+				HttpMethod.PUT, unfollowEntity, String.class);
+		assertEquals(HttpStatus.BAD_REQUEST, unfollowResponse.getStatusCode());
 	}
 
 	@Test

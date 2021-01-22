@@ -1,13 +1,16 @@
 package org.cs.socialmedia;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest
-class SocialMediaApplicationTests {
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = SocialMediaApplication.class)
+public class SocialMediaApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void main() {
+		SocialMediaApplication.main(new String[] {});
 	}
-
 }

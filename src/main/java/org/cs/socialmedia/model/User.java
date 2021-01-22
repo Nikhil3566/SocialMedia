@@ -15,6 +15,8 @@ public class User {
 	public User(Long userId) {
 		super();
 		this.userId = userId;
+		this.followers = new HashSet<>();
+		this.followees = new HashSet<>();
 		this.newsfeed = new Newsfeed();
 	}
 
@@ -27,18 +29,11 @@ public class User {
 	}
 
 	public void addFollower(User follower) {
-		if (null == followers) {
-			followers = new HashSet<>();
-		}
 		followers.add(follower);
 	}
 
 	public void removeFollower(User follower) {
-		if (null == followers || followers.isEmpty() || !followers.contains(follower)) {
-			throw new InvalidUnfollowRequestException(follower.userId, this.userId);
-		} else {
-			followers.remove(follower);
-		}
+		followers.remove(follower);
 	}
 
 	public Set<User> getFollowees() {
@@ -46,14 +41,11 @@ public class User {
 	}
 
 	public void addFollowee(User followee) {
-		if (null == followees) {
-			followees = new HashSet<>();
-		}
 		followees.add(followee);
 	}
 
 	public void removeFollowee(User followee) {
-		if (null == followees || followees.isEmpty() || !followees.contains(followee)) {
+		if (!followees.contains(followee)) {
 			throw new InvalidUnfollowRequestException(this.userId, followee.userId);
 		} else {
 			followees.remove(followee);
