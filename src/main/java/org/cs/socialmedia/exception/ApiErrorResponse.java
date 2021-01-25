@@ -18,4 +18,5 @@ public class ApiErrorResponse {
 	public String getMessage() {
 		return message;
 	}
+
 }

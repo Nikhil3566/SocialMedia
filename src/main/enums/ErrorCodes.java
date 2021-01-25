@@ -2,9 +2,8 @@ package org.cs.socialmedia.enums;
 
 public enum ErrorCodes {
 
-	INVALID_USER(400, "No user found with ID: %s"),
-	INVALID_FOLLOW_REQUEST(401, "User: %s is already following User: %s"),
-	INVALID_UNFOLLOW_REQUEST(402, "User: %s is already not following User: %s");
+	INVALID_USER(400, "No user found with ID: %d"),
+	INVALID_UNFOLLOW_REQUEST(401, "User: %d is already not following User: %d");
 
 	private int responseCode;
 	private String responseMessage;

@@ -4,20 +4,20 @@ public class InvalidUnfollowRequestException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	private final Long followerId;
-	private final Long followeeId;
+	private final String followerId;
+	private final String followeeId;
 
-	public InvalidUnfollowRequestException(Long followerId, Long followeeId) {
+	public InvalidUnfollowRequestException(String followerId, String followeeId) {
 		super();
 		this.followerId = followerId;
 		this.followeeId = followeeId;
 	}
 
-	public Long getFollowerId() {
+	public String getFollowerId() {
 		return followerId;
 	}
 
-	public Long getFolloweeId() {
+	public String getFolloweeId() {
 		return followeeId;
 	}
 

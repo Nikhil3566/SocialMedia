@@ -23,4 +23,12 @@ public class SocialMediaControllerAdvice {
 						ex.getFolloweeId()));
 		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 	}
+	
+	@ExceptionHandler(InvalidFollowRequestException.class)
+	public ResponseEntity<ApiErrorResponse> handleInvalidFollowRequestException(InvalidFollowRequestException ex) {
+		ApiErrorResponse response = new ApiErrorResponse(ErrorCodes.INVALID_FOLLOW_REQUEST.getResponseCode(),
+				String.format(ErrorCodes.INVALID_FOLLOW_REQUEST.getResponseMessage(), ex.getFollowerId(),
+						ex.getFolloweeId()));
+		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+	}
 }
