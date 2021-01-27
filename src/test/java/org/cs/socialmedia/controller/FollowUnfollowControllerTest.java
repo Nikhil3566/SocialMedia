@@ -1,4 +1,4 @@
-package org.cs.socialmedia;
+package org.cs.socialmedia.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
